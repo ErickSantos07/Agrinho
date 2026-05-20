@@ -1,0 +1,10 @@
+#fazenda {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+}
+.quadrado {
+  width: 100px;
+  height: 100px;
+  background-image: url('assets/terra_vazia.png');
+}
