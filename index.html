@@ -1,4 +1,42 @@
-<div id="fazenda">
-  <div class="quadrado" id="lote-1" onclick="interagir(1)"></div>
-  <div class="quadrado" id="lote-2" onclick="interagir(2)"></div>
-  </div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha Verde: Agro1D (Projeto Agrinho)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>🌱 Linha Verde: Agro1D</h1>
+        <p class="subtitle">Gerencie sua fazenda linear de forma sustentável em tempo real!</p>
+
+        <div class="hud">
+            <div class="stat">💰 Moedas: <span id="moedas">100</span></div>
+            <div class="stat">💧 Água na Cisterna: <span id="agua">50</span>L</div>
+            <div class="stat">♻️ Sustentabilidade: <span id="sustentabilidade">100</span>%</div>
+        </div>
+
+        <div class="fazenda-1d" id="fazenda">
+            </div>
+
+        <div class="controles">
+            <h3>Ações do Agricultor:</h3>
+            <button onclick="comprarAgua()">🌧️ Coletar Água da Chuva (-10 Moedas / +30L Água)</button>
+            <button onclick="ativarControleBiologico()">🐞 Praticar Controle Biológico (Gasta 20 Moedas)</button>
+        </div>
+
+        <div class="regras">
+            <h4>Manual de Sustentabilidade (Agrinho):</h4>
+            <ul>
+                <li>Lotes secam com o tempo. Regue antes que a planta morra!</li>
+                <li>Mantenha a **Sustentabilidade alta**. Se usar práticas ruins ou deixar pragas tomarem conta, você perde.</li>
+                <li>Plantas prontas piscam em verde. Clique nelas para colher e ganhar moedas!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

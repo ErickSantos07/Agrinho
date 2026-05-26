@@ -1,31 +1,53 @@
+// Variáveis Globais do Jogador
+let moedas = 100;
+let aguaCisterna = 50;
+let sustentabilidade = 100;
 
-let lote1 = {
-    status: "vazio", // pode ser "broto", "pronto", "com_praga"
-    cultura: "nenhuma",
-    regado: false
-};
-// Estado inicial do Lote 1
-let lote1 = {
-    status: "broto",
-    tempoCrescimento: 0,
-    tempoParaColher: 10, // precisa de 10 segundos
-    regado: true
+// Configuração dos 5 lotes da nossa Linha 1D
+let lotes = [
+    { id: 0, status: "vazio", progresso: 0, regado: true, temPraga: false },
+    { id: 1, status: "vazio", progresso: 0, regado: true, temPraga: false },
+    { id: 2, status: "vazio", progresso: 0, regado: true, temPraga: false },
+    { id: 3, status: "vazio", progresso: 0, regado: true, temPraga: false },
+    { id: 4, status: "vazio", progresso: 0, regado: true, temPraga: false }
+];
+
+// Inicializar o Jogo ao carregar a página
+window.onload = function() {
+    renderizarFazenda();
+    // Loop Principal do Jogo: Roda a cada 1 segundo (1000ms)
+    setInterval(gameLoop, 1000);
 };
 
-// Esse loop roda a cada 1 segundo (1000 milissegundos)
-setInterval(function() {
-    
-    // Se tiver planta e a terra estiver molhada, ela cresce
-    if (lote1.status === "broto" && lote1.regado === true) {
-        lote1.tempoCrescimento++;
-        console.log("A planta está crescendo... Tempo: " + lote1.tempoCrescimento + "s");
+// Desenha a linha de lotes na tela de forma atualizada
+function renderizarFazenda() {
+    const fazendaDiv = document.getElementById("fazenda");
+    fazendaDiv.innerHTML = ""; // Limpa a linha para redesenhar
+
+    lotes.forEach(lote => {
+        const loteDiv = document.createElement("div");
+        loteDiv.classList.add("lote");
+
+        // Aplica as classes CSS dependendo do estado em tempo real
+        if (!lote.regado) loteDiv.classList.add("seco");
+        if (lote.status === "pronto") loteDiv.classList.add("pronto");
+        if (lote.temPraga) loteDiv.classList.add("com-praga");
+
+        // Define o texto que aparece dentro do bloco 1D
+        let conteudoHTML = `<strong>Lote ${lote.id + 1}</strong>`;
         
-        // Se atingiu o tempo necessário, ela fica pronta
-        if (lote1.tempoCrescimento >= lote1.tempoParaColher) {
-            lote1.status = "pronto_para_colher";
-            alert("A Soja está pronta para a colheita sustentável!");
-            // Aqui você mudaria a imagem do lote via código para a planta grande
+        if (lote.temPraga) {
+            conteudoHTML += `<span>🐛 PRAGA!</span>`;
+        } else if (lote.status === "vazio") {
+            conteudoHTML += `<span>🟫 Terra Vazia<br><small>(Clique para Plantar)</small></span>`;
+        } else if (lote.status === "crescendo") {
+            conteudoHTML += `<span>🌱 Crescendo: ${lote.progresso}%</span>`;
+        } else if (lote.status === "pronto") {
+            conteudoHTML += `<span>🌾 PRONTO!<br><small>(Clique para Colher)</small></span>`;
         }
-    }
-    
-}, 1000);
+
+        conteudoHTML += `<span>${lote.regado ? "💧 Úmido" : "🍂 Seco"}</span>`;
+        
+        loteDiv.innerHTML = conteudoHTML;
+        
+        // Define a ação do
