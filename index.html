@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Linha Agrícola - Projeto Agrinho</title>
+    <title>Fazenda 1D - Gerenciamento Avançado</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="game-container">
-        <h1>Super Linha Agrícola 🚜</h1>
-        <p class="instructions">Use as setas <strong>Esquerda (◀)</strong> e <strong>Direita (▶)</strong> para mover o trator. Colha as plantas maduras e leve ao Silo. Cuidado com as lagartas!</p>
+        <h1>🚜 Fazenda 1D: Edição Avançada</h1>
+        <p class="description">Clique nas ações abaixo para selecionar sua ferramenta e depois <strong>clique direto no terreno</strong> desejado!</p>
         
-        <div class="scoreboard">
-            <div>Pontos: <span id="score">0</span></div>
-            <div>Carga: <span id="cargo">0</span>/3</div>
+        <div class="status-panel">
+            <div class="status-item">💰 Moedas: <span id="coins">20</span></div>
+            <div class="status-item">🌾 Sementes: <span id="seeds">5</span></div>
         </div>
 
-        <div class="game-track" id="gameTrack">
-            <div class="silo" style="left: 0px;">🏢 Silo</div>
-            </div>
+        <div class="tool-selector">
+            <button id="tool-plant" class="tool-btn active">🌱 Plantar</button>
+            <button id="tool-water" class="tool-btn">💧 Regar</button>
+            <button id="tool-bio" class="tool-btn-special">🧪 Biofertilizante ($5)</button>
+            <button id="tool-herb" class="tool-btn-special">⚠️ Herbicida ($3)</button>
+            <button id="tool-harvest" class="tool-btn">🧺 Colher</button>
+        </div>
 
-        <div class="controls-hint">Dica: Plantas piscam em verde quando estão prontas para colher!</div>
+        <div class="world-1d" id="farm-line"></div>
+
+        <div class="shop-panel">
+            <h3>Mercado de Insumos</h3>
+            <button id="btn-buy-seed">Comprar Semente (Custo: 2 💰)</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
