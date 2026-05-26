@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fazendinha 1D - Projeto Agrinho</title>
+    <title>Super Linha Agrícola - Projeto Agrinho</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="game-container">
-        <h1>🌾 Fazendinha 1D 🚜</h1>
-        <p class="instructions">Use as setas <strong>⬅️ Esquerda</strong> e <strong>Direita ➡️</strong> para se mover. Regue e colha as plantas!</p>
+        <h1>Super Linha Agrícola 🚜</h1>
+        <p class="instructions">Use as setas <strong>Esquerda (◀)</strong> e <strong>Direita (▶)</strong> para mover o trator. Colha as plantas maduras e leve ao Silo. Cuidado com as lagartas!</p>
         
         <div class="scoreboard">
             <div>Pontos: <span id="score">0</span></div>
-            <div>Água: <span id="water">5</span>/5</div>
+            <div>Carga: <span id="cargo">0</span>/3</div>
         </div>
 
-        <div class="world-1d" id="world">
+        <div class="game-track" id="gameTrack">
+            <div class="silo" style="left: 0px;">🏢 Silo</div>
             </div>
 
-        <div class="controls-info">
-            <p>💧 Fique em cima do **Poço (P)** para recarregar a água.</p>
-            <p>🌱 Fique em cima da planta para cuidar dela automaticamente.</p>
-        </div>
+        <div class="controls-hint">Dica: Plantas piscam em verde quando estão prontas para colher!</div>
     </div>
 
     <script src="script.js"></script>
