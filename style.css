@@ -1,12 +1,17 @@
-/* Configurações Gerais */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e8f5e9;
-    color: #2e7d32;
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e8f5e9; /* Verde claro sustentável */
+    color: #2e7d32;
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .game-container {
@@ -14,111 +19,71 @@ body {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    max-width: 800px;
-    width: 100%;
     text-align: center;
+    max-width: 600px;
+    width: 100%;
 }
 
 h1 {
-    margin-top: 0;
+    margin-bottom: 10px;
     color: #1b5e20;
 }
 
-.subtitle {
-    font-style: italic;
-    color: #666;
+.instructions {
+    font-size: 0.9rem;
+    color: #558b2f;
+    margin-bottom: 20px;
 }
 
-/* Painel de Status (HUD) */
-.hud {
+.scoreboard {
     display: flex;
     justify-content: space-around;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
     background-color: #f1f8e9;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    font-weight: bold;
-    font-size: 1.1em;
-    border: 2px solid #c5e1a5;
-}
-
-/* A LINHA 1D - Todos os lotes em uma fila só */
-.fazenda-1d {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-/* Cada Bloco/Lote da Linha */
-.lote {
-    flex: 1;
-    background-color: #8d6e63; /* Cor de terra */
-    border: 4px solid #5d4037;
-    border-radius: 10px;
-    padding: 15px;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
-    color: #fff;
-}
-
-.lote:hover {
-    transform: scale(1.05);
-}
-
-/* Estados Visuais do Solo/Lote */
-.lote.seco {
-    background-color: #d7ccc8;
-    color: #5d4037;
-    border-color: #8d6e63;
-}
-
-.lote.pronto {
-    background-color: #4caf50;
-    border-color: #2e7d32;
-    animation: piscar 1s infinite alternate;
-}
-
-.lote.com-praga {
-    border-color: #c62828;
-    background-color: #b0bec5;
-    color: #c62828;
-}
-
-/* Botões */
-.controles button {
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 5px;
+    padding: 10px;
     border-radius: 8px;
-    font-size: 1fr;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s;
 }
 
-.controles button:hover {
-    background-color: #1b5e20;
+/* A linha 1D do jogo */
+.world-1d {
+    display: flex;
+    position: relative;
+    background-color: #8d6e63; /* Cor de terra */
+    height: 60px;
+    border-radius: 8px;
+    border-bottom: 8px solid #5d4037;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    overflow: hidden;
 }
 
-.regras {
-    margin-top: 30px;
+/* Elementos da linha */
+.cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    position: relative;
+    transition: all 0.1s ease;
+}
+
+/* Destacar onde o fazendeiro está */
+.cell.farmer-here {
+    background-color: rgba(255, 235, 59, 0.4);
+    border-radius: 50%;
+}
+
+.controls-info {
+    font-size: 0.85rem;
+    color: #6d4c41;
     text-align: left;
-    background-color: #fafafa;
-    padding: 15px;
-    border-left: 5px solid #81c784;
-    font-size: 0.9em;
-}
-
-/* Animação para colheita */
-@keyframes piscar {
-    from { filter: brightness(1); }
-    to { filter: brightness(1.2); }
+    background-color: #efebe9;
+    padding: 10px;
+    border-radius: 8px;
 }

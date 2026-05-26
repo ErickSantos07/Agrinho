@@ -3,37 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linha Verde: Agro1D (Projeto Agrinho)</title>
+    <title>Fazendinha 1D - Projeto Agrinho</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="game-container">
-        <h1>🌱 Linha Verde: Agro1D</h1>
-        <p class="subtitle">Gerencie sua fazenda linear de forma sustentável em tempo real!</p>
-
-        <div class="hud">
-            <div class="stat">💰 Moedas: <span id="moedas">100</span></div>
-            <div class="stat">💧 Água na Cisterna: <span id="agua">50</span>L</div>
-            <div class="stat">♻️ Sustentabilidade: <span id="sustentabilidade">100</span>%</div>
+        <h1>🌾 Fazendinha 1D 🚜</h1>
+        <p class="instructions">Use as setas <strong>⬅️ Esquerda</strong> e <strong>Direita ➡️</strong> para se mover. Regue e colha as plantas!</p>
+        
+        <div class="scoreboard">
+            <div>Pontos: <span id="score">0</span></div>
+            <div>Água: <span id="water">5</span>/5</div>
         </div>
 
-        <div class="fazenda-1d" id="fazenda">
+        <div class="world-1d" id="world">
             </div>
 
-        <div class="controles">
-            <h3>Ações do Agricultor:</h3>
-            <button onclick="comprarAgua()">🌧️ Coletar Água da Chuva (-10 Moedas / +30L Água)</button>
-            <button onclick="ativarControleBiologico()">🐞 Praticar Controle Biológico (Gasta 20 Moedas)</button>
-        </div>
-
-        <div class="regras">
-            <h4>Manual de Sustentabilidade (Agrinho):</h4>
-            <ul>
-                <li>Lotes secam com o tempo. Regue antes que a planta morra!</li>
-                <li>Mantenha a **Sustentabilidade alta**. Se usar práticas ruins ou deixar pragas tomarem conta, você perde.</li>
-                <li>Plantas prontas piscam em verde. Clique nelas para colher e ganhar moedas!</li>
-            </ul>
+        <div class="controls-info">
+            <p>💧 Fique em cima do **Poço (P)** para recarregar a água.</p>
+            <p>🌱 Fique em cima da planta para cuidar dela automaticamente.</p>
         </div>
     </div>
 
